@@ -1,23 +1,55 @@
 package ru.netology;
 
 public class Radio {
-    private int currentRadioStation;
-    private int volume;
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int currentRadioStation = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int volume = minVolume;
+
+    public Radio(int currentRadioStation, int maxStation, int minStation, int volume, int maxVolume, int minVolume) {
+        this.currentRadioStation = currentRadioStation;
+        this.maxStation = maxStation;
+        this.minStation = minStation;
+        this.volume = volume;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+    }
+
+    public Radio() {
+
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
     }
 
     public int getVolume() {
         return volume;
     }
 
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
 
     public void setInstallingARadioStation(int newCurrentRadioStation) {// Установка радиостанции
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation > maxStation) {
             return;
         }
-        if (newCurrentRadioStation < 0) {
+        if (newCurrentRadioStation < minStation) {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
@@ -25,7 +57,7 @@ public class Radio {
 
 
     public void next() { // увеличение станции на 1
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < maxStation) {
             currentRadioStation = currentRadioStation + 1;
         } else {
             currentRadioStation = 0;
@@ -34,7 +66,7 @@ public class Radio {
 
 
     public void prev() { // уменьшение станции на 1
-        if (currentRadioStation > 0) {
+        if (currentRadioStation > minStation) {
             currentRadioStation = currentRadioStation - 1;
         } else {
             currentRadioStation = 9;
@@ -42,32 +74,31 @@ public class Radio {
     }
 
     public void setVolume(int newVolume) {// Установка громкости
-        if (newVolume > 100) {
-            newVolume = 100;
+        if (newVolume > maxVolume) {
+            newVolume = maxVolume;
         }
-        if (newVolume < 0) {
-            newVolume = 0;
+        if (newVolume < minVolume) {
+            newVolume = minVolume;
         }
         volume = newVolume;
     }
 
 
     public void increaseVolume() { // увеличение громкости
-        if (volume < 100) {
+        if (volume < maxVolume) {
             volume = volume + 1;
         } else {
-            volume = 100;
+            volume = maxVolume;
         }
     }
 
 
     public void decreaseVolume() { // уменьшение громкости
-        if (volume > 0) {
+        if (volume > minVolume) {
             volume = volume - 1;
         } else {
-            volume = 0;
+            volume = minVolume;
         }
     }
 }
-
 
