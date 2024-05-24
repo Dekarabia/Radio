@@ -8,17 +8,59 @@ public class Radio {
     private int minVolume = 0;
     private int volume;
 
-    public Radio() {
+    public Radio(int maxStation) {
+        this.maxStation = maxStation;
+    }
 
+    public Radio(int volume, int minVolume, int maxVolume, int currentRadioStation, int minStation, int maxStation) {
+        this.volume = volume;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.currentRadioStation = currentRadioStation;
+        this.minStation = minStation;
+        this.maxStation = maxStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
     }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
+    }
+
     public int getVolume() {
         return volume;
     }
+
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {// Установка радиостанции
         if (newCurrentRadioStation > maxStation) {
@@ -75,4 +117,7 @@ public class Radio {
             volume = minVolume;
         }
     }
+
 }
+
+

@@ -4,7 +4,7 @@ import ru.netology.Radio;
 
 public class RadioTest {
 
-    Radio radio = new Radio();
+    Radio radio = new Radio(9);
 
     @Test
     public void setCurrentRadioStation() {
@@ -16,7 +16,7 @@ public class RadioTest {
 
     @Test
     public void setCurrentRadioStation1() {
-        radio.setCurrentRadioStation(10);
+        radio.setCurrentRadioStation(0);
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
